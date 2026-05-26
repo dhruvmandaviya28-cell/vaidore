@@ -55,11 +55,11 @@
 
     <main>
         <!-- 1. Hero Section -->
-        <section class="section section-dark" style="padding: 100px 5% 60px; min-height: 85vh; display: flex; align-items: center; position: relative; overflow: hidden; border-bottom:1px solid var(--border-gold);">
+        <section class="section section-dark hero-section">
             <!-- Subtle Gold Radial Ambient Aura -->
             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 80%; background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 65%); pointer-events: none; z-index: 1;"></div>
             
-            <div style="width: 100%; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; z-index: 2;">
+            <div class="hero-grid">
                 <div class="hero-left">
                     <span style="font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.4em; font-weight: 600; display: block; margin-bottom: 20px;">Artisanal French Perfumery</span>
                     <h1 style="font-size: clamp(3rem, 5vw, 4.8rem); line-height: 1.1; margin-bottom: 25px; color: var(--text-primary);">
@@ -132,7 +132,7 @@
             </div>
 
             <!-- Hand-crafted premium products catalog preview -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;">
+            <div class="featured-grid">
                 <!-- Product Card 1: Gold Royale -->
                 <div style="background: var(--bg-card); border: 1px solid var(--border-gold); padding: 25px; display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition-smooth); position:relative;" onmouseover="this.style.borderColor='var(--gold)';" onmouseout="this.style.borderColor='var(--border-gold)';">
                     <span style="position: absolute; top: 15px; left: 15px; background: var(--gold-gradient); color: #000; font-size: 0.65rem; font-weight: 700; padding: 4px 10px; letter-spacing: 0.1em; text-transform: uppercase;">Best Seller</span>
