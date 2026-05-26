@@ -1114,6 +1114,38 @@ footer {
     border-bottom: 1px solid var(--border-gold);
 }
 
+.hero-subtitle {
+    font-size: 0.85rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.1;
+    margin-bottom: 25px;
+    color: var(--text-primary);
+}
+
+.hero-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 550px;
+    margin-bottom: 40px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
 .hero-grid {
     width: 100%;
     display: grid;
@@ -1357,9 +1389,96 @@ html, body {
 
 /* --- 4. Micro Phones & Narrow Layouts (max-width: 480px) --- */
 @media (max-width: 480px) {
+    /* Compact Navbar Spacing and Scaling */
+    header {
+        padding: 0 12px !important;
+        height: 60px !important;
+    }
+    
+    header.scrolled {
+        height: 55px !important;
+    }
+    
+    .logo-container {
+        gap: 6px !important;
+    }
+    
+    .logo-text {
+        font-size: 1.15rem !important;
+        letter-spacing: 0.05em !important;
+    }
+    
+    .logo-container svg {
+        width: 26px !important;
+        height: 26px !important;
+    }
+    
+    .header-actions {
+        gap: 8px !important;
+    }
+    
+    .icon-btn {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 0.95rem !important;
+        background: rgba(255,255,255,0.02) !important;
+        border-color: rgba(212,175,55,0.1) !important;
+    }
+    
+    .badge {
+        width: 14px !important;
+        height: 14px !important;
+        font-size: 0.6rem !important;
+        top: 0px !important;
+        right: 0px !important;
+    }
+
     /* Fonts & Headings */
     h1 {
-        font-size: 2.2rem !important;
+        font-size: 1.85rem !important;
+        line-height: 1.25 !important;
+        letter-spacing: normal !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.7rem !important;
+        letter-spacing: 0.15em !important;
+        margin-bottom: 12px !important;
+        padding: 0 4px !important;
+    }
+    
+    .hero-title {
+        font-size: 1.85rem !important;
+        line-height: 1.25 !important;
+        letter-spacing: -0.01em !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .hero-desc {
+        font-size: 0.85rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 25px !important;
+        padding: 0 4px !important;
+    }
+    
+    /* Responsive stacked buttons */
+    .hero-buttons {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+        padding: 0 4px !important;
+    }
+    
+    .hero-buttons .btn {
+        width: 100% !important;
+        max-width: 290px !important;
+        margin: 0 auto !important;
+        min-height: 44px !important; /* Premium finger tap target size */
+    }
+    
+    .section-title {
+        font-size: 1.8rem !important;
     }
     
     .section-title {
