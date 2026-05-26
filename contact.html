@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Our Laboratory | Vaidora Luxury Perfumes</title>
+    <meta name="description" content="Reach out to Vaidora Perfumes. Chat directly on WhatsApp with Vaidik Patel and Shruti Vekariya or submit a secure contact inquiry form.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            padding: 40px 5%;
+        }
+
+        .contact-info-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-channel-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: var(--transition-smooth);
+        }
+
+        .contact-channel-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .contact-icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid var(--border-gold);
+            background: var(--bg-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .contact-channel-details {
+            flex: 1;
+        }
+
+        .contact-name {
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .contact-label {
+            font-size: 0.7rem;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .contact-link {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        .contact-form-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            padding: 40px;
+        }
+
+        @media (max-width: 992px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Unified Header -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html" style="display: flex; align-items: center; gap: 12px;">
+                <svg viewBox="0 0 100 100" style="width: 42px; height: 42px; fill: none; stroke: #D4AF37; stroke-width: 2.5;">
+                    <path d="M50 20 C42 40 25 45 15 50 C25 55 42 60 50 80 C58 60 75 55 85 50 C75 45 58 40 50 20 Z" />
+                    <path d="M50 35 C46 48 35 52 28 55 C35 58 46 62 50 75 C54 62 65 58 72 55 C65 52 54 48 50 35 Z" />
+                    <circle cx="50" cy="55" r="3" fill="#D4AF37" />
+                </svg>
+                <div class="logo-text">Vaidora<span>.</span></div>
+            </a>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="shop.html" class="nav-link">Shop All</a>
+            <a href="categories.html" class="nav-link">Categories</a>
+            <a href="offers.html" class="nav-link">Combo Deals</a>
+            <a href="reviews.html" class="nav-link">Reviews</a>
+            <a href="about.html" class="nav-link">Our Story</a>
+            <a href="contact.html" class="nav-link active">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="icon-btn search-trigger" aria-label="Search Collection">🔍</button>
+            <button class="icon-btn wishlist-trigger" aria-label="Wishlist drawer">
+                🤍<span class="badge wishlist-count">0</span>
+            </button>
+            <button class="icon-btn cart-trigger" aria-label="Cart drawer">
+                🛍️<span class="badge cart-count">0</span>
+            </button>
+            <button class="menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Contact Header Banner -->
+        <section class="section section-alt" style="padding: 50px 5%; text-align: center; border-bottom: 1px solid var(--border-gold);">
+            <span style="font-size: 0.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.3em;">Concierge Care</span>
+            <h1 style="font-size: 3rem; margin-top: 10px; font-family: var(--font-heading);">Connect With Vaidora</h1>
+            <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 500px; margin: 15px auto 0; font-weight: 300;">Reach our boutique laboratory directly. We are delighted to answer your custom olfactory inquiries.</p>
+        </section>
+
+        <!-- Contact core layout -->
+        <div class="contact-layout">
+            
+            <!-- Left: Direct contacts channels -->
+            <section class="contact-info-panel">
+                <h2 style="font-size: 2rem; color:var(--text-primary); font-family:var(--font-heading); margin-bottom:10px;">Direct Communication Channels</h2>
+                <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.6; margin-bottom:15px;">
+                    Whether you require a custom wholesale fragrance compilation, require help tracking an active parcel, or want advice on selecting a scent profile, our direct concierge lines are open.
+                </p>
+
+                <!-- Channel 1: Vaidik Patel WhatsApp -->
+                <div class="contact-channel-card">
+                    <div class="contact-icon-box">💬</div>
+                    <div class="contact-channel-details">
+                        <span class="contact-label">Founder & Scent Compounder</span>
+                        <h3 class="contact-name">Vaidik Patel</h3>
+                        <a href="https://wa.me/917863065807?text=Hello%20Vaidik%2C%20I%20have%20an%20inquiry%20regarding%20Vaidora%20Perfumes." target="_blank" class="contact-link">+91 78630 65807</a>
+                        <div style="margin-top:10px;">
+                            <a href="https://wa.me/917863065807?text=Hello%20Vaidik%2C%20I%20have%20an%20inquiry%20regarding%20Vaidora%20Perfumes." target="_blank" class="btn btn-secondary" style="padding:6px 12px; font-size:0.65rem; background:#25d366; color:white; border:none;">Chat on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Channel 2: Shruti Vekariya WhatsApp -->
+                <div class="contact-channel-card">
+                    <div class="contact-icon-box">💬</div>
+                    <div class="contact-channel-details">
+                        <span class="contact-label">Co-Founder & Scent Design Director</span>
+                        <h3 class="contact-name">Shruti Vekariya</h3>
+                        <a href="https://wa.me/919875148610?text=Hello%20Shruti%2C%20I%20have%20an%20inquiry%20regarding%20Vaidora%20Perfumes." target="_blank" class="contact-link">+91 98751 48610</a>
+                        <div style="margin-top:10px;">
+                            <a href="https://wa.me/919875148610?text=Hello%20Shruti%2C%20I%20have%20an%20inquiry%20regarding%20Vaidora%20Perfumes." target="_blank" class="btn btn-secondary" style="padding:6px 12px; font-size:0.65rem; background:#25d366; color:white; border:none;">Chat on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Channel 3: Instagram -->
+                <div class="contact-channel-card">
+                    <div class="contact-icon-box">📸</div>
+                    <div class="contact-channel-details">
+                        <span class="contact-label">Social Media Channel</span>
+                        <h3 class="contact-name">Instagram Profile</h3>
+                        <a href="https://instagram.com/vaidora.perfume" target="_blank" class="contact-link">@vaidora.perfume</a>
+                    </div>
+                </div>
+
+                <!-- Channel 4: Email -->
+                <div class="contact-channel-card">
+                    <div class="contact-icon-box">📧</div>
+                    <div class="contact-channel-details">
+                        <span class="contact-label">Boutique Mailing Desk</span>
+                        <h3 class="contact-name">Customer Concierge Email</h3>
+                        <a href="mailto:support@vaidora.com" class="contact-link">support@vaidora.com</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right: Secure message inquiry form -->
+            <section>
+                <div class="contact-form-card">
+                    <h3 style="font-size:1.8rem; color:var(--gold); font-family:var(--font-heading); margin-bottom:20px; border-bottom:1px solid var(--border-dark); padding-bottom:10px;">Send Secure Inquiry</h3>
+                    <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:25px; line-height:1.5;">Fill out our direct inquiry matrix. Our concierge desk will respond to your registered email address within 24 hours.</p>
+
+                    <form id="contact-laboratory-form" onsubmit="handleContactSubmit(event)">
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" id="f-name" class="form-control" placeholder="e.g. Shruti Vekariya" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" id="f-email" class="form-control" placeholder="e.g. shruti@gmail.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Subject</label>
+                            <select id="f-subject" class="form-control" style="background:var(--bg-input);">
+                                <option value="general">General Scent Inquiry</option>
+                                <option value="order">Active Order Support</option>
+                                <option value="combo">Combo Deal Clarification</option>
+                                <option value="wholesale">Wholesale & Custom Compounding</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Message Details</label>
+                            <textarea id="f-message" class="form-control" rows="5" placeholder="Please write your detailed request here..." style="resize:none;" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width:100%; padding:14px;">Send Secure Inquiry</button>
+                    </form>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="footer-logo">Vaidora<span>.</span></div>
+                <p>An exquisite boutique perfume laboratory creating long-lasting inspired luxury scents. Crafted using finest oil infusions to accompany every mood and milestone.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/vaidora.perfume" target="_blank" class="social-btn" aria-label="Follow us on Instagram">📸</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="shop.html">Shop All Fragrances</a></li>
+                    <li><a href="categories.html">Explore Categories</a></li>
+                    <li><a href="offers.html">Exclusive Combo Offers</a></li>
+                    <li><a href="tracking.html">Track Your Order</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">Our Brand Story</a></li>
+                    <li><a href="reviews.html">Customer Reviews</a></li>
+                    <li><a href="contact.html">Contact Customer Care</a></li>
+                    <li><a href="contact.html">Wholesale Inquiries</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Direct Contacts</h4>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📱</span>
+                    <div>
+                        <strong style="display:block; color:var(--text-primary); font-size:0.8rem;">Vaidik Patel</strong>
+                        <a href="https://wa.me/917863065807" target="_blank" style="font-size:0.8rem;">+91 78630 65807</a>
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📱</span>
+                    <div>
+                        <strong style="display:block; color:var(--text-primary); font-size:0.8rem;">Shruti Vekariya</strong>
+                        <a href="https://wa.me/919875148610" target="_blank" style="font-size:0.8rem;">+91 98751 48610</a>
+                    </div>
+                </div>
+                <div class="footer-contact-item" style="margin-top:15px;">
+                    <span class="footer-contact-icon">📧</span>
+                    <a href="mailto:support@vaidora.com" style="font-size:0.8rem;">support@vaidora.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vaidora Perfumes. All Rights Reserved. Designed with Luxury.</p>
+            <p>
+                <a href="#" style="margin-right:15px;">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="shared.js"></script>
+    <script>
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            
+            const btn = event.target.querySelector("button[type='submit']");
+            const originalText = btn.textContent;
+            
+            // Simulates processing
+            btn.disabled = true;
+            btn.textContent = "Transmitting Scent Signal...";
+
+            setTimeout(() => {
+                // Clear fields
+                document.getElementById("f-name").value = "";
+                document.getElementById("f-email").value = "";
+                document.getElementById("f-message").value = "";
+                
+                btn.disabled = false;
+                btn.textContent = originalText;
+                
+                showToast("Inquiry Transmitted Successfully. Thank you!", true);
+            }, 1500);
+        }
+    </script>
+</body>
+</html>

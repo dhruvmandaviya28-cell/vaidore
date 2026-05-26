@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Scent Passage | Vaidora Luxury Perfumes</title>
+    <meta name="description" content="Track your Vaidora perfume delivery in real-time. Enter your Order ID to view shipment progress and courier tracking details.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .tracking-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            padding: 40px;
+        }
+
+        /* Visual Timeline */
+        .timeline {
+            margin: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            top: 22px;
+            left: 5%;
+            width: 90%;
+            height: 2px;
+            background: var(--border-dark);
+            z-index: -1;
+        }
+
+        .timeline-progress-line {
+            position: absolute;
+            top: 22px;
+            left: 5%;
+            height: 2px;
+            background: var(--gold-gradient);
+            z-index: -1;
+            transition: var(--transition-smooth);
+            width: 0%; /* Dynamic width based on status: 0%, 25%, 50%, 75%, 100% */
+        }
+
+        .timeline-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 80px;
+        }
+
+        .timeline-node {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-dark);
+            border: 2px solid var(--border-dark);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .timeline-step.completed .timeline-node {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: #000;
+            box-shadow: 0 0 15px var(--gold-glow);
+        }
+
+        .timeline-step.active .timeline-node {
+            border-color: var(--gold);
+            background: var(--bg-dark);
+            color: var(--gold);
+            box-shadow: 0 0 10px var(--gold-glow);
+            animation: pulseNode 2s infinite;
+        }
+
+        @keyframes pulseNode {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        .timeline-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        .timeline-step.completed .timeline-label,
+        .timeline-step.active .timeline-label {
+            color: var(--gold-light);
+        }
+
+        /* Order Invoice Summary */
+        .order-summary-details {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-dark);
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .summary-header-row {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-dark);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .summary-item-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .timeline {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 25px;
+                padding-left: 20px;
+            }
+            .timeline::after {
+                top: 0;
+                left: 32px;
+                width: 2px;
+                height: 100%;
+            }
+            .timeline-progress-line {
+                top: 0;
+                left: 32px;
+                width: 2px;
+                height: 0%; /* Vertical height instead */
+            }
+            .timeline-step {
+                flex-direction: row;
+                text-align: left;
+                width: 100%;
+                gap: 20px;
+            }
+            .timeline-node {
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Unified Header -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html" style="display: flex; align-items: center; gap: 12px;">
+                <svg viewBox="0 0 100 100" style="width: 42px; height: 42px; fill: none; stroke: #D4AF37; stroke-width: 2.5;">
+                    <path d="M50 20 C42 40 25 45 15 50 C25 55 42 60 50 80 C58 60 75 55 85 50 C75 45 58 40 50 20 Z" />
+                    <path d="M50 35 C46 48 35 52 28 55 C35 58 46 62 50 75 C54 62 65 58 72 55 C65 52 54 48 50 35 Z" />
+                    <circle cx="50" cy="55" r="3" fill="#D4AF37" />
+                </svg>
+                <div class="logo-text">Vaidora<span>.</span></div>
+            </a>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="shop.html" class="nav-link">Shop All</a>
+            <a href="categories.html" class="nav-link">Categories</a>
+            <a href="offers.html" class="nav-link">Combo Deals</a>
+            <a href="reviews.html" class="nav-link">Reviews</a>
+            <a href="about.html" class="nav-link">Our Story</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="icon-btn search-trigger" aria-label="Search Collection">🔍</button>
+            <button class="icon-btn wishlist-trigger" aria-label="Wishlist drawer">
+                🤍<span class="badge wishlist-count">0</span>
+            </button>
+            <button class="icon-btn cart-trigger" aria-label="Cart drawer">
+                🛍️<span class="badge cart-count">0</span>
+            </button>
+            <button class="menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Tracking Header Banner -->
+        <section class="section section-alt" style="padding: 50px 5%; text-align: center; border-bottom: 1px solid var(--border-gold);">
+            <span style="font-size: 0.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.3em;">Logistics Portal</span>
+            <h1 style="font-size: 3rem; margin-top: 10px; font-family: var(--font-heading);">Track Scent Passage</h1>
+            <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 500px; margin: 15px auto 0; font-weight: 300;">Enter your unique Order ID to track the real-time shipping progress of your Vaidora extracts.</p>
+        </section>
+
+        <!-- Main Tracking Section -->
+        <section class="section section-dark">
+            <div class="tracking-box">
+                <h3 class="form-label" style="text-align: center; margin-bottom: 15px;">Input Order Credentials</h3>
+                
+                <!-- Tracking input search -->
+                <div class="coupon-input-group" style="margin-bottom: 30px;">
+                    <input type="text" id="tracking-id-input" class="coupon-input" placeholder="e.g. VD-2026-123456" style="padding: 15px; font-size:1rem;">
+                    <button class="coupon-btn" style="padding: 0 25px;" onclick="handleTrackAction()">Track Order</button>
+                </div>
+                
+                <p style="font-size: 0.65rem; color: var(--text-muted); text-align: center; margin-top: -20px; margin-bottom: 30px;">
+                    💡 Tip: Try placing a mock order first or type <b>VD-2026-786306</b> to view a live simulated timeline!
+                </p>
+
+                <!-- Dynamic Tracking Results Wrapper -->
+                <div id="tracking-results-area" style="display: none; border-top: 1px solid var(--border-gold); padding-top: 30px;">
+                    
+                    <div style="text-align: center; margin-bottom: 15px;">
+                        <span style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em;">Current Dispatch Status</span>
+                        <div id="track-status-badge" style="font-family:var(--font-heading); font-size:1.8rem; color:var(--gold); margin-top:5px;">DISPATCHED IN TRANSIT</div>
+                    </div>
+
+                    <!-- 5-step horizontal timeline -->
+                    <div class="timeline">
+                        <div class="timeline-progress-line" id="track-progress-bar"></div>
+                        
+                        <div class="timeline-step" id="step-placed">
+                            <div class="timeline-node">📥</div>
+                            <span class="timeline-label">Placed</span>
+                        </div>
+                        <div class="timeline-step" id="step-packed">
+                            <div class="timeline-node">🧪</div>
+                            <span class="timeline-label">Sealed</span>
+                        </div>
+                        <div class="timeline-step" id="step-shipped">
+                            <div class="timeline-node">✈️</div>
+                            <span class="timeline-label">Shipped</span>
+                        </div>
+                        <div class="timeline-step" id="step-out">
+                            <div class="timeline-node">🚚</div>
+                            <span class="timeline-label">Out</span>
+                        </div>
+                        <div class="timeline-step" id="step-delivered">
+                            <div class="timeline-node">🎁</div>
+                            <span class="timeline-label">Delivered</span>
+                        </div>
+                    </div>
+
+                    <!-- Order Invoice Breakdown -->
+                    <div class="order-summary-details">
+                        <div class="summary-header-row">
+                            <span id="track-order-id">Order ID: VD-2026-XXXXX</span>
+                            <span id="track-order-date">Date: May 26, 2026</span>
+                        </div>
+                        
+                        <div id="track-order-items">
+                            <!-- Populated dynamically -->
+                        </div>
+
+                        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed var(--border-dark);">
+                            <div class="summary-item-row">
+                                <span>Bag Subtotal</span>
+                                <span id="track-subtotal">₹0</span>
+                            </div>
+                            <div class="summary-item-row" style="color: #4caf50;" id="track-discount-row">
+                                <span>Combo Discount</span>
+                                <span id="track-discount">- ₹0</span>
+                            </div>
+                            <div class="summary-item-row">
+                                <span>Shipping Fee</span>
+                                <span id="track-shipping">₹0</span>
+                            </div>
+                            <div class="summary-item-row" id="track-cod-row">
+                                <span>COD Fee</span>
+                                <span id="track-cod">₹0</span>
+                            </div>
+                            <div class="summary-item-row" style="font-weight: 600; color: var(--gold-light); font-size:1.05rem; margin-top:10px; border-top:1px solid var(--border-dark); padding-top:10px;">
+                                <span>Total Paid</span>
+                                <span id="track-grandtotal">₹0</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 25px; border-top: 1px solid var(--border-dark); padding-top: 20px;">
+                            <span class="form-label" style="font-size:0.65rem;">Shipping Address</span>
+                            <p id="track-address" style="font-size:0.8rem; color:var(--text-secondary); line-height:1.6;"></p>
+                            <span class="form-label" style="font-size:0.65rem; margin-top:15px;">Payment Methodology</span>
+                            <p id="track-payment" style="font-size:0.8rem; color:var(--text-secondary);"></p>
+                        </div>
+                    </div>
+
+                    <!-- Direct WhatsApp Escalation Support -->
+                    <div style="text-align: center; margin-top: 35px;">
+                        <a id="track-escalate-btn" href="#" target="_blank" class="btn btn-secondary" style="background:#25d366; color:white; border:none; gap:10px; padding:12px 25px;">
+                            💬 Inquire Shipping on WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="footer-logo">Vaidora<span>.</span></div>
+                <p>An exquisite boutique perfume laboratory creating long-lasting inspired luxury scents. Crafted using finest oil infusions to accompany every mood and milestone.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/vaidora.perfume" target="_blank" class="social-btn" aria-label="Follow us on Instagram">📸</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="shop.html">Shop All Fragrances</a></li>
+                    <li><a href="categories.html">Explore Categories</a></li>
+                    <li><a href="offers.html">Exclusive Combo Offers</a></li>
+                    <li><a href="tracking.html">Track Your Order</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">Our Brand Story</a></li>
+                    <li><a href="reviews.html">Customer Reviews</a></li>
+                    <li><a href="contact.html">Contact Customer Care</a></li>
+                    <li><a href="contact.html">Wholesale Inquiries</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Direct Contacts</h4>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📱</span>
+                    <div>
+                        <strong style="display:block; color:var(--text-primary); font-size:0.8rem;">Vaidik Patel</strong>
+                        <a href="https://wa.me/917863065807" target="_blank" style="font-size:0.8rem;">+91 78630 65807</a>
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📱</span>
+                    <div>
+                        <strong style="display:block; color:var(--text-primary); font-size:0.8rem;">Shruti Vekariya</strong>
+                        <a href="https://wa.me/919875148610" target="_blank" style="font-size:0.8rem;">+91 98751 48610</a>
+                    </div>
+                </div>
+                <div class="footer-contact-item" style="margin-top:15px;">
+                    <span class="footer-contact-icon">📧</span>
+                    <a href="mailto:support@vaidora.com" style="font-size:0.8rem;">support@vaidora.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vaidora Perfumes. All Rights Reserved. Designed with Luxury.</p>
+            <p>
+                <a href="#" style="margin-right:15px;">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="shared.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            // Check if Order ID is passed via URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const passedId = urlParams.get("orderId");
+            
+            if (passedId) {
+                document.getElementById("tracking-id-input").value = passedId;
+                trackOrder(passedId);
+            }
+        });
+
+        function handleTrackAction() {
+            const input = document.getElementById("tracking-id-input");
+            if (!input) return;
+
+            const orderId = input.value.trim().toUpperCase();
+            if (orderId === "") {
+                showToast("Please enter a valid Order ID.", false);
+                return;
+            }
+            trackOrder(orderId);
+        }
+
+        function trackOrder(orderId) {
+            // Retrieve orders from local storage
+            let orders = JSON.parse(localStorage.getItem("vaidora_orders")) || [];
+            
+            let matchedOrder = orders.find(o => o.orderId.toUpperCase() === orderId);
+
+            // Simulation Fallback: If not found in localStorage, let's create a beautiful mock order 
+            // so the user can test the tracking page immediately!
+            if (!matchedOrder) {
+                // If it looks like a Vaidora ID or is our special helper ID
+                if (orderId === "VD-2026-786306" || orderId.startsWith("VD-2026-")) {
+                    matchedOrder = {
+                        orderId: orderId,
+                        customerName: "Shruti Vekariya",
+                        phone: "9875148610",
+                        whatsapp: "9875148610",
+                        address: "402, Golden Crest Residency, VIP Road, Surat, Gujarat - 395007",
+                        paymentMethod: "UPI",
+                        items: [
+                            { name: "Vaidora Gold Royale", size: "50ml", price: 699, quantity: 1 },
+                            { name: "Vaidora Rose Velvet", size: "6ml", price: 349, quantity: 1 }
+                        ],
+                        subtotal: 1048,
+                        discount: 0,
+                        shipping: 0,
+                        codFee: 0,
+                        grandTotal: 1048,
+                        date: "2026-05-25",
+                        status: "shipped" // Simulates mid-transit
+                    };
+                } else {
+                    showToast("Order ID not found in laboratory log.", false);
+                    document.getElementById("tracking-results-area").style.display = "none";
+                    return;
+                }
+            }
+
+            // Draw Order Details on screen
+            document.getElementById("track-order-id").textContent = `Order ID: ${matchedOrder.orderId}`;
+            document.getElementById("track-order-date").textContent = `Date: ${matchedOrder.date}`;
+            document.getElementById("track-subtotal").textContent = `₹${matchedOrder.subtotal}`;
+            
+            const discRow = document.getElementById("track-discount-row");
+            const discVal = document.getElementById("track-discount");
+            if (matchedOrder.discount > 0) {
+                discRow.style.display = "flex";
+                discVal.textContent = `- ₹${matchedOrder.discount}`;
+            } else {
+                discRow.style.display = "none";
+            }
+
+            document.getElementById("track-shipping").textContent = matchedOrder.shipping === 0 ? "FREE" : `₹${matchedOrder.shipping}`;
+            
+            const codRow = document.getElementById("track-cod-row");
+            const codVal = document.getElementById("track-cod");
+            if (matchedOrder.codFee > 0) {
+                codRow.style.display = "flex";
+                codVal.textContent = `₹${matchedOrder.codFee}`;
+            } else {
+                codRow.style.display = "none";
+            }
+
+            document.getElementById("track-grandtotal").textContent = `₹${matchedOrder.grandTotal}`;
+            document.getElementById("track-address").textContent = matchedOrder.address;
+            document.getElementById("track-payment").textContent = matchedOrder.paymentMethod === "COD" ? "Cash on Delivery (COD)" : "UPI Online (Razorpay Secured)";
+
+            // Draw Items List
+            let itemsHtml = "";
+            matchedOrder.items.forEach(i => {
+                itemsHtml += `
+                    <div class="summary-item-row">
+                        <span>${i.name} (${i.size}) <strong style="color:var(--gold-light);">x ${i.quantity}</strong></span>
+                        <span>₹${i.price * i.quantity}</span>
+                    </div>
+                `;
+            });
+            document.getElementById("track-order-items").innerHTML = itemsHtml;
+
+            // Resolve timeline step rendering
+            const status = matchedOrder.status;
+            let barWidth = "0%";
+            let statusLabelText = "";
+
+            // Reset all nodes first
+            const steps = ["placed", "packed", "shipped", "out", "delivered"];
+            steps.forEach(s => {
+                const el = document.getElementById(`step-${s}`);
+                el.className = "timeline-step";
+            });
+
+            if (status === "placed") {
+                barWidth = "0%";
+                statusLabelText = "ORDER CONFIRMED & PLACED";
+                document.getElementById("step-placed").className = "timeline-step active";
+            } else if (status === "packed") {
+                barWidth = "25%";
+                statusLabelText = "BOTTLED, SEALED & PACKED";
+                document.getElementById("step-placed").className = "timeline-step completed";
+                document.getElementById("step-packed").className = "timeline-step active";
+            } else if (status === "shipped") {
+                barWidth = "50%";
+                statusLabelText = "DISPATCHED IN TRANSIT VIA AIR";
+                document.getElementById("step-placed").className = "timeline-step completed";
+                document.getElementById("step-packed").className = "timeline-step completed";
+                document.getElementById("step-shipped").className = "timeline-step active";
+            } else if (status === "out_for_delivery") {
+                barWidth = "75%";
+                statusLabelText = "OUT FOR LOCAL SENSORY DELIVERY";
+                document.getElementById("step-placed").className = "timeline-step completed";
+                document.getElementById("step-packed").className = "timeline-step completed";
+                document.getElementById("step-shipped").className = "timeline-step completed";
+                document.getElementById("step-out").className = "timeline-step active";
+            } else if (status === "delivered") {
+                barWidth = "100%";
+                statusLabelText = "DELIVERED & SCENT UNBOXED";
+                document.getElementById("step-placed").className = "timeline-step completed";
+                document.getElementById("step-packed").className = "timeline-step completed";
+                document.getElementById("step-shipped").className = "timeline-step completed";
+                document.getElementById("step-out").className = "timeline-step completed";
+                document.getElementById("step-delivered").className = "timeline-step completed";
+            }
+
+            // Adjust bar size
+            const bar = document.getElementById("track-progress-bar");
+            if (window.innerWidth <= 600) {
+                bar.style.width = "2px";
+                bar.style.height = barWidth;
+            } else {
+                bar.style.height = "2px";
+                bar.style.width = barWidth;
+            }
+
+            document.getElementById("track-status-badge").textContent = statusLabelText;
+
+            // Generate WhatsApp Inquiry Message Escalation Link
+            const waMsg = `Hello Vaidora Perfumes, I would like an update on my delivery status!\n\nOrder ID: ${matchedOrder.orderId}\nCustomer Name: ${matchedOrder.customerName}\nCurrent Status: ${statusLabelText}`;
+            document.getElementById("track-escalate-btn").href = `https://wa.me/917863065807?text=${encodeURIComponent(waMsg)}`;
+
+            // Slide results area open
+            document.getElementById("tracking-results-area").style.display = "block";
+            showToast("Scent passage loaded.", true);
+        }
+    </script>
+</body>
+</html>

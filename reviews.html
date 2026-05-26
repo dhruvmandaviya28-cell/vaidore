@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Experiences | Vaidora Luxury Perfumes</title>
+    <meta name="description" content="Read authentic customer reviews of Vaidora luxury inspired fragrances. Share your own Vaidora scent story and browse verified buyer experiences.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Reviews dashboard layout */
+        .reviews-layout {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 40px;
+            padding: 40px 5%;
+        }
+
+        .rating-summary-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .big-rating {
+            font-size: 3.5rem;
+            font-family: var(--font-heading);
+            color: var(--gold);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .review-stars {
+            color: var(--gold);
+            font-size: 1.25rem;
+            margin: 10px 0;
+        }
+
+        .reviews-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            padding: 25px;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .review-card:hover {
+            border-color: var(--border-gold);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .reviewer-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--gold);
+            font-size: 0.95rem;
+        }
+
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.65rem;
+            color: #4caf50;
+            background: rgba(76, 175, 80, 0.05);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .review-comment {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .review-product-tag {
+            font-size: 0.75rem;
+            color: var(--gold-light);
+            background: var(--bg-dark);
+            padding: 4px 10px;
+            display: inline-block;
+            border: 1px solid var(--border-dark);
+        }
+
+        .review-photo-slot {
+            width: 90px;
+            height: 90px;
+            border: 1px solid var(--border-gold);
+            margin-top: 15px;
+            background: linear-gradient(135deg, #1f1a10 0%, #080808 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        /* Review submission form card */
+        .write-review-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            padding: 30px;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        /* Interactive star selector styling */
+        .star-rating-selector {
+            display: flex;
+            gap: 8px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .star-item {
+            color: var(--text-muted);
+            transition: var(--transition-fast);
+        }
+
+        .star-item.selected,
+        .star-item:hover {
+            color: var(--gold);
+        }
+
+        @media (max-width: 992px) {
+            .reviews-layout {
+                grid-template-columns: 1fr;
+            }
+            .write-review-card {
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Unified Header -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html" style="display: flex; align-items: center; gap: 12px;">
+                <svg viewBox="0 0 100 100" style="width: 42px; height: 42px; fill: none; stroke: #D4AF37; stroke-width: 2.5;">
+                    <path d="M50 20 C42 40 25 45 15 50 C25 55 42 60 50 80 C58 60 75 55 85 50 C75 45 58 40 50 20 Z" />
+                    <path d="M50 35 C46 48 35 52 28 55 C35 58 46 62 50 75 C54 62 65 58 72 55 C65 52 54 48 50 35 Z" />
+                    <circle cx="50" cy="55" r="3" fill="#D4AF37" />
+                </svg>
+                <div class="logo-text">Vaidora<span>.</span></div>
+            </a>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="shop.html" class="nav-link">Shop All</a>
+            <a href="categories.html" class="nav-link">Categories</a>
+            <a href="offers.html" class="nav-link">Combo Deals</a>
+            <a href="reviews.html" class="nav-link active">Reviews</a>
+            <a href="about.html" class="nav-link">Our Story</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="icon-btn search-trigger" aria-label="Search Collection">🔍</button>
+            <button class="icon-btn wishlist-trigger" aria-label="Wishlist drawer">
+                🤍<span class="badge wishlist-count">0</span>
+            </button>
+            <button class="icon-btn cart-trigger" aria-label="Cart drawer">
+                🛍️<span class="badge cart-count">0</span>
+            </button>
+            <button class="menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Reviews Intro Banner -->
+        <section class="section section-alt" style="padding: 50px 5%; text-align: center; border-bottom: 1px solid var(--border-gold);">
+            <span style="font-size: 0.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.3em;">Scent Testimonials</span>
+            <h1 style="font-size: 3rem; margin-top: 10px; font-family: var(--font-heading);">Whispers of Satisfaction</h1>
+            <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 500px; margin: 15px auto 0; font-weight: 300;">Discover verified experiences of customers who found their unique signature aura with Vaidora.</p>
+        </section>
+
+        <!-- Reviews Core Layout -->
+        <div class="reviews-layout">
+            
+            <!-- Left: Rating Summary & List of Reviews -->
+            <section>
+                <!-- Rating Dashboard -->
+                <div class="rating-summary-card">
+                    <div style="display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; gap:20px;">
+                        <div>
+                            <span style="font-size: 0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:5px;">Overall Scent Rating</span>
+                            <div class="big-rating">4.9 <span style="font-size:1.5rem; color:var(--text-muted); font-weight:400;">/ 5.0</span></div>
+                            <div class="review-stars">★★★★★</div>
+                            <span style="font-size:0.75rem; color:var(--text-muted);">Based on 1,420+ verified buyers</span>
+                        </div>
+                        
+                        <!-- Mini score list -->
+                        <div style="text-align:left; font-size:0.8rem; color:var(--text-secondary); width: 220px;">
+                            <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                                <span>5 Stars</span>
+                                <span style="color:var(--gold);">92%</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                                <span>4 Stars</span>
+                                <span style="color:var(--gold);">6%</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                                <span>3 Stars</span>
+                                <span style="color:var(--gold);">1.5%</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between;">
+                                <span>1-2 Stars</span>
+                                <span style="color:var(--gold);">0.5%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Feed Grid -->
+                <div class="reviews-feed" id="reviews-feed-list">
+                    <!-- Dynamic reviews load here, combined with preset values -->
+                </div>
+            </section>
+
+            <!-- Right: Interactive review form -->
+            <aside>
+                <div class="write-review-card">
+                    <h3 style="font-size: 1.6rem; color:var(--gold); font-family:var(--font-heading); margin-bottom:20px; border-bottom:1px solid var(--border-dark); padding-bottom:10px;">Share Your Scent Story</h3>
+                    
+                    <form id="review-submission-form" onsubmit="handleReviewSubmit(event)">
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" id="r-name" class="form-control" placeholder="e.g. Shruti V." required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Select Scent Purchased</label>
+                            <select id="r-product" class="form-control" style="background:var(--bg-input);" required>
+                                <option value="Vaidora Gold Royale">Vaidora Gold Royale</option>
+                                <option value="Vaidora Rose Velvet">Vaidora Rose Velvet</option>
+                                <option value="Vaidora Ocean Breeze">Vaidora Ocean Breeze</option>
+                                <option value="Vaidora Noir Intense">Vaidora Noir Intense</option>
+                                <option value="Vaidora Citrus Elixir">Vaidora Citrus Elixir</option>
+                                <option value="Vaidora Jasmine Blossom">Vaidora Jasmine Blossom</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Olfactory Rating</label>
+                            <div class="star-rating-selector" id="r-stars-select">
+                                <span class="star-item selected" data-value="1" onclick="setSelectRating(1)">★</span>
+                                <span class="star-item selected" data-value="2" onclick="setSelectRating(2)">★</span>
+                                <span class="star-item selected" data-value="3" onclick="setSelectRating(3)">★</span>
+                                <span class="star-item selected" data-value="4" onclick="setSelectRating(4)">★</span>
+                                <span class="star-item selected" data-value="5" onclick="setSelectRating(5)">★</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Review Details</label>
+                            <textarea id="r-text" class="form-control" rows="4" placeholder="How long did the scent last? Describe the notes..." style="resize:none;" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width:100%; padding:12px;">Submit My Review</button>
+                    </form>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="footer-logo">Vaidora<span>.</span></div>
+                <p>An exquisite boutique perfume laboratory creating long-lasting inspired luxury scents. Crafted using finest oil infusions to accompany every mood and milestone.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/vaidora.perfume" target="_blank" class="social-btn" aria-label="Follow us on Instagram">📸</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="shop.html">Shop All Fragrances</a></li>
+                    <li><a href="categories.html">Explore Categories</a></li>
+                    <li><a href="offers.html">Exclusive Combo Offers</a></li>
+                    <li><a href="tracking.html">Track Your Order</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">Our Brand Story</a></li>
+                    <li><a href="reviews.html">Customer Reviews</a></li>
+                    <li><a href="contact.html">Contact Customer Care</a></li>
+                    <li><a href="contact.html">Wholesale Inquiries</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Direct Contacts</h4>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📱</span>
+                    <div>
+                        <strong style="display:block; color:var(--text-primary); font-size:0.8rem;">Vaidik Patel</strong>
+                        <a href="https://wa.me/917863065807" target="_blank" style="font-size:0.8rem;">+91 78630 65807</a>
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📱</span>
+                    <div>
+                        <strong style="display:block; color:var(--text-primary); font-size:0.8rem;">Shruti Vekariya</strong>
+                        <a href="https://wa.me/919875148610" target="_blank" style="font-size:0.8rem;">+91 98751 48610</a>
+                    </div>
+                </div>
+                <div class="footer-contact-item" style="margin-top:15px;">
+                    <span class="footer-contact-icon">📧</span>
+                    <a href="mailto:support@vaidora.com" style="font-size:0.8rem;">support@vaidora.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vaidora Perfumes. All Rights Reserved. Designed with Luxury.</p>
+            <p>
+                <a href="#" style="margin-right:15px;">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="shared.js"></script>
+    <script>
+        // Preset high-fidelity review reviews database list
+        const PRESET_REVIEWS = [
+            {
+                name: "Vaidik Patel",
+                product: "Vaidora Gold Royale",
+                rating: 5,
+                comment: "Absolutely mesmerizing! The Cambodian Oud in Gold Royale smells extremely premium and complex. The scent easily lasts over 12 hours on my skin and I get compliments every single time I wear it. Worth every single rupee!",
+                date: "2026-05-20"
+            },
+            {
+                name: "Shruti Vekariya",
+                product: "Vaidora Rose Velvet",
+                rating: 5,
+                comment: "I am absolutely in love with Rose Velvet. It is the perfect blend of Damask rose and rich vanilla sweet praline. It has a beautiful scent trail that isn't overpowering but stays with you all day long. Perfect for evenings out.",
+                date: "2026-05-18"
+            },
+            {
+                name: "Rahul M.",
+                product: "Vaidora Ocean Breeze",
+                rating: 4,
+                comment: "Perfect summer perfume! Extremely clean, crisp, and fresh. The sea salt and cedar wood dry down is incredible. Lasts easily up to 9 hours which is amazing for a fresh/aquatic fragrance compound.",
+                date: "2026-05-12"
+            }
+        ];
+
+        let selectedRating = 5;
+
+        window.addEventListener("DOMContentLoaded", () => {
+            renderReviews();
+        });
+
+        // Handles star selection clicking
+        function setSelectRating(num) {
+            selectedRating = num;
+            const stars = document.querySelectorAll("#r-stars-select .star-item");
+            stars.forEach((star, index) => {
+                star.classList.toggle("selected", index < num);
+            });
+        }
+
+        // Saves new review to local storage
+        function handleReviewSubmit(event) {
+            event.preventDefault();
+            
+            const nameInput = document.getElementById("r-name");
+            const productSelect = document.getElementById("r-product");
+            const textInput = document.getElementById("r-text");
+            
+            const newReview = {
+                name: nameInput.value.trim(),
+                product: productSelect.value,
+                rating: selectedRating,
+                comment: textInput.value.trim(),
+                date: new Date().toISOString().split('T')[0]
+            };
+
+            // Fetch current reviews list from local storage or initialize empty
+            let customReviews = JSON.parse(localStorage.getItem("vaidora_custom_reviews")) || [];
+            customReviews.unshift(newReview);
+            localStorage.setItem("vaidora_custom_reviews", JSON.stringify(customReviews));
+
+            // Reset Form fields
+            nameInput.value = "";
+            textInput.value = "";
+            setSelectRating(5);
+
+            showToast("Review submitted successfully! Thank you for sharing.", true);
+            renderReviews();
+        }
+
+        // Renders all reviews combined
+        function renderReviews() {
+            const feed = document.getElementById("reviews-feed-list");
+            if (!feed) return;
+
+            // Retrieve custom user-written reviews
+            const customReviews = JSON.parse(localStorage.getItem("vaidora_custom_reviews")) || [];
+            
+            // Combine custom reviews (first) with standard preset list
+            const allReviews = [...customReviews, ...PRESET_REVIEWS];
+
+            let html = "";
+            allReviews.forEach(r => {
+                // Make visual stars string
+                let stars = "★".repeat(r.rating) + "☆".repeat(5 - r.rating);
+                let formattedDate = new Date(r.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+
+                // Initials for avatar
+                let initials = r.name.split(" ").map(w => w[0]).join("").toUpperCase().substring(0, 2);
+
+                html += `
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">${initials}</div>
+                                <div>
+                                    <strong style="display:block; font-size:1rem; color:var(--text-primary);">${r.name}</strong>
+                                    <span style="font-size:0.75rem; color:var(--text-muted);">${formattedDate}</span>
+                                </div>
+                            </div>
+                            <div style="text-align:right;">
+                                <div style="color:var(--gold); font-size:1.15rem; letter-spacing:1px; margin-bottom:2px;">${stars}</div>
+                                <span class="verified-badge">✓ Verified Buyer</span>
+                            </div>
+                        </div>
+                        
+                        <p class="review-comment">"${r.comment}"</p>
+                        
+                        <span class="review-product-tag">Purchased: ${r.product}</span>
+                        
+                        <!-- customer photo review visual placeholder -->
+                        <div class="review-photo-slot" title="Customer shared photo">
+                            <span>📸</span>
+                        </div>
+                    </div>
+                `;
+            });
+
+            feed.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

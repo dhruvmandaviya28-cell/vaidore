@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaidora | Luxury Fragrances, Crafted for Every Mood</title>
+    <meta name="description" content="Discover Vaidora's exquisite collection of premium, inspired, long-lasting luxury perfumes. Handcrafted fragrance blends of Oud, Rose, Amber & Fresh Citrus.">
+    <!-- Premium Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Unified Header -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html" style="display: flex; align-items: center; gap: 12px;">
+                <!-- Decorative Gold Lotus Silhouette Inline SVG representing Logo -->
+                <svg viewBox="0 0 100 100" style="width: 42px; height: 42px; fill: none; stroke: #D4AF37; stroke-width: 2.5;">
+                    <path d="M50 20 C42 40 25 45 15 50 C25 55 42 60 50 80 C58 60 75 55 85 50 C75 45 58 40 50 20 Z" />
+                    <path d="M50 35 C46 48 35 52 28 55 C35 58 46 62 50 75 C54 62 65 58 72 55 C65 52 54 48 50 35 Z" />
+                    <circle cx="50" cy="55" r="3" fill="#D4AF37" />
+                </svg>
+                <div class="logo-text">Vaidora<span>.</span></div>
+            </a>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="shop.html" class="nav-link">Shop All</a>
+            <a href="categories.html" class="nav-link">Categories</a>
+            <a href="offers.html" class="nav-link">Combo Deals</a>
+            <a href="reviews.html" class="nav-link">Reviews</a>
+            <a href="about.html" class="nav-link">Our Story</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+
+        <!-- Action Items -->
+        <div class="header-actions">
+            <button class="icon-btn search-trigger" aria-label="Search Collection">🔍</button>
+            <button class="icon-btn wishlist-trigger" aria-label="Wishlist drawer">
+                🤍<span class="badge wishlist-count">0</span>
+            </button>
+            <button class="icon-btn cart-trigger" aria-label="Cart drawer">
+                🛍️<span class="badge cart-count">0</span>
+            </button>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Hero Section -->
+        <section class="section section-dark" style="padding: 100px 5% 60px; min-height: 85vh; display: flex; align-items: center; position: relative; overflow: hidden; border-bottom:1px solid var(--border-gold);">
+            <!-- Subtle Gold Radial Ambient Aura -->
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 80%; background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 65%); pointer-events: none; z-index: 1;"></div>
+            
+            <div style="width: 100%; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; z-index: 2;">
+                <div class="hero-left">
+                    <span style="font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.4em; font-weight: 600; display: block; margin-bottom: 20px;">Artisanal French Perfumery</span>
+                    <h1 style="font-size: clamp(3rem, 5vw, 4.8rem); line-height: 1.1; margin-bottom: 25px; color: var(--text-primary);">
+                        Luxury Fragrances,<br>
+                        <span style="color: var(--gold); font-style: italic;">Crafted for Every Mood.</span>
+                    </h1>
+                    <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 550px; margin-bottom: 40px; font-weight: 300; line-height: 1.8;">
+                        Step into a realm of olfactory opulence. Discover exquisite oil-rich perfume blends designed for unparalleled 12+ hour longevity and sophisticated projection.
+                    </p>
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <a href="shop.html" class="btn btn-primary">Shop Now</a>
+                        <a href="categories.html" class="btn btn-secondary">Explore Categories</a>
+                    </div>
+                </div>
+
+                <!-- Fallback Graphic Display for Perfume Hero bottle (Visual Placeholder) -->
+                <div class="hero-right" style="position: relative; display: flex; justify-content: center;">
+                    <div style="width: 380px; max-width: 100%; aspect-ratio: 0.85; border: 1px solid var(--border-gold); padding: 25px; background: linear-gradient(135deg, #121212 0%, #080808 100%); box-shadow: 0 30px 60px rgba(0,0,0,0.8); display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; position: relative;">
+                        <!-- Golden Glow behind visual -->
+                        <div style="position:absolute; width:150px; height:150px; background:var(--gold-glow); filter:blur(40px); border-radius:50%; top:25%; pointer-events:none;"></div>
+                        
+                        <div style="font-size: 0.75rem; color: var(--gold); letter-spacing: 0.25em; text-transform: uppercase;">Exclusif Collection</div>
+                        
+                        <!-- Core elegant logo outline represent bottle shape inside -->
+                        <div style="width: 180px; height: 180px; display:flex; align-items:center; justify-content:center; position:relative; margin: 20px 0;">
+                            <svg viewBox="0 0 100 100" style="width: 100%; height: 100%; fill: none; stroke: #D4AF37; stroke-width: 1.5; filter: drop-shadow(0 0 8px var(--gold-glow));">
+                                <path d="M35 30 L65 30 L65 40 L75 40 L75 90 L25 90 L25 40 L35 40 Z" />
+                                <path d="M45 20 L55 20 L55 30 L45 30 Z" />
+                                <circle cx="50" cy="65" r="10" stroke-dasharray="3" />
+                                <path d="M50 45 L50 85" stroke-width="0.7" />
+                            </svg>
+                        </div>
+                        
+                        <div>
+                            <h3 style="font-size: 1.8rem; color: var(--text-primary); margin-bottom: 5px;">Vaidora Gold Royale</h3>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); font-style: italic; letter-spacing: 0.05em;">Rich Oud & Premium Saffron Blend</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Scrolling Credentials Highlight Ribbon -->
+        <div style="background: var(--bg-card); border-bottom: 1px solid var(--border-gold); padding: 15px 0; overflow: hidden; white-space: nowrap;">
+            <div style="display: inline-block; animation: scrollText 30s linear infinite; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-light);">
+                ✨ 100+ FRAGRANCES AVAILABLE &nbsp;&nbsp;&nbsp;&nbsp;⚜️&nbsp;&nbsp;&nbsp;&nbsp;
+                PREMIUM FRENCH INGREDIENTS &nbsp;&nbsp;&nbsp;&nbsp;⚜️&nbsp;&nbsp;&nbsp;&nbsp;
+                FREE SHIPPING ABOVE ₹500 &nbsp;&nbsp;&nbsp;&nbsp;⚜️&nbsp;&nbsp;&nbsp;&nbsp;
+                GUARANTEED 12+ HOUR LONGEVITY &nbsp;&nbsp;&nbsp;&nbsp;⚜️&nbsp;&nbsp;&nbsp;&nbsp;
+                CASH ON DELIVERY (COD) AVAILABLE &nbsp;&nbsp;&nbsp;&nbsp;⚜️&nbsp;&nbsp;&nbsp;&nbsp;
+                ✨ 100+ FRAGRANCES AVAILABLE &nbsp;&nbsp;&nbsp;&nbsp;⚜️&nbsp;&nbsp;&nbsp;&nbsp;
+                PREMIUM FRENCH INGREDIENTS &nbsp;&nbsp;&nbsp;&nbsp;⚜️&nbsp;&nbsp;&nbsp;&nbsp;
+                FREE SHIPPING ABOVE ₹500 &nbsp;&nbsp;&nbsp;&nbsp;⚜️&nbsp;&nbsp;&nbsp;&nbsp;
+                GUARANTEED 12+ HOUR LONGEVITY
+            </div>
+        </div>
+        
+        <style>
+            @keyframes scrollText {
+                0% { transform: translate3d(0, 0, 0); }
+                100% { transform: translate3d(-50%, 0, 0); }
+            }
+        </style>
+
+        <!-- 3. Featured Bestsellers Section -->
+        <section class="section section-dark">
+            <div class="section-header">
+                <span class="section-subtitle">Exquisite Handpicked Scents</span>
+                <h2 class="section-title">The Signature Collection</h2>
+            </div>
+
+            <!-- Hand-crafted premium products catalog preview -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;">
+                <!-- Product Card 1: Gold Royale -->
+                <div style="background: var(--bg-card); border: 1px solid var(--border-gold); padding: 25px; display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition-smooth); position:relative;" onmouseover="this.style.borderColor='var(--gold)';" onmouseout="this.style.borderColor='var(--border-gold)';">
+                    <span style="position: absolute; top: 15px; left: 15px; background: var(--gold-gradient); color: #000; font-size: 0.65rem; font-weight: 700; padding: 4px 10px; letter-spacing: 0.1em; text-transform: uppercase;">Best Seller</span>
+                    <button class="wishlist-btn" onclick="toggleWishlist('gold_royale')" data-id="gold_royale" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.3rem; cursor: pointer; color: white;">🤍</button>
+                    
+                    <div style="height: 280px; margin-bottom: 25px;">
+                        <div class="perfume-placeholder">
+                            <span class="placeholder-icon">✨</span>
+                            <span class="placeholder-brand">Vaidora</span>
+                            <div style="font-size: 0.65rem; color:var(--text-muted); margin-top:10px;">[Product Image Area]</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="font-size: 0.7rem; color: var(--gold); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;">Unisex • Woody & Spicy</span>
+                            <span style="font-size: 0.7rem; background:rgba(255,255,255,0.05); padding: 2px 8px; color: var(--text-secondary);">Lasts 12+ Hrs</span>
+                        </div>
+                        
+                        <h3 style="font-size: 1.6rem; color: var(--text-primary); margin-bottom: 5px;">Vaidora Gold Royale</h3>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 15px; line-height: 1.5;">Luxurious Cambodi Oud fused with fresh saffron strands and dark patchouli.</p>
+                        
+                        <div style="font-size:0.75rem; color:var(--gold-light); margin-bottom:15px;">
+                            <b>Notes:</b> Saffron • Agarwood (Oud) • Amber
+                        </div>
+
+                        <!-- Price display based on 3ml -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid var(--border-dark);">
+                            <div>
+                                <span style="font-size: 0.7rem; color: var(--text-muted); display: block;">Starting from</span>
+                                <span style="font-size: 1.25rem; color: var(--gold); font-weight: 600;">₹199 <span style="font-size:0.75rem; color:var(--text-muted); font-weight:400;">(3ml)</span></span>
+                            </div>
+                            <a href="shop.html" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.7rem;">Select Size</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2: Rose Velvet -->
+                <div style="background: var(--bg-card); border: 1px solid var(--border-gold); padding: 25px; display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition-smooth); position:relative;" onmouseover="this.style.borderColor='var(--gold)';" onmouseout="this.style.borderColor='var(--border-gold)';">
+                    <span style="position: absolute; top: 15px; left: 15px; background: var(--gold-gradient); color: #000; font-size: 0.65rem; font-weight: 700; padding: 4px 10px; letter-spacing: 0.1em; text-transform: uppercase;">Luxury Special</span>
+                    <button class="wishlist-btn" onclick="toggleWishlist('rose_velvet')" data-id="rose_velvet" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.3rem; cursor: pointer; color: white;">🤍</button>
+
+                    <div style="height: 280px; margin-bottom: 25px;">
+                        <div class="perfume-placeholder">
+                            <span class="placeholder-icon">🌹</span>
+                            <span class="placeholder-brand">Vaidora</span>
+                            <div style="font-size: 0.65rem; color:var(--text-muted); margin-top:10px;">[Product Image Area]</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="font-size: 0.7rem; color: var(--gold); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;">Women • Floral & Amber</span>
+                            <span style="font-size: 0.7rem; background:rgba(255,255,255,0.05); padding: 2px 8px; color: var(--text-secondary);">Lasts 10+ Hrs</span>
+                        </div>
+                        
+                        <h3 style="font-size: 1.6rem; color: var(--text-primary); margin-bottom: 5px;">Vaidora Rose Velvet</h3>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 15px; line-height: 1.5;">Velvety Damask Rose paired with sweet praline, warm clove, and rich vanilla.</p>
+                        
+                        <div style="font-size:0.75rem; color:var(--gold-light); margin-bottom:15px;">
+                            <b>Notes:</b> Damask Rose • Praline • Vanilla
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid var(--border-dark);">
+                            <div>
+                                <span style="font-size: 0.7rem; color: var(--text-muted); display: block;">Starting from</span>
+                                <span style="font-size: 1.25rem; color: var(--gold); font-weight: 600;">₹199 <span style="font-size:0.75rem; color:var(--text-muted); font-weight:400;">(3ml)</span></span>
+                            </div>
+                            <a href="shop.html" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.7rem;">Select Size</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3: Ocean Breeze -->
+                <div style="background: var(--bg-card); border: 1px solid var(--border-gold); padding: 25px; display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition-smooth); position:relative;" onmouseover="this.style.borderColor='var(--gold)';" onmouseout="this.style.borderColor='var(--border-gold)';">
+                    <span style="position: absolute; top: 15px; left: 15px; background: var(--gold-gradient); color: #000; font-size: 0.65rem; font-weight: 700; padding: 4px 10px; letter-spacing: 0.1em; text-transform: uppercase;">Summer Edition</span>
+                    <button class="wishlist-btn" onclick="toggleWishlist('ocean_breeze')" data-id="ocean_breeze" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.3rem; cursor: pointer; color: white;">🤍</button>
+
+                    <div style="height: 280px; margin-bottom: 25px;">
+                        <div class="perfume-placeholder">
+                            <span class="placeholder-icon">🌊</span>
+                            <span class="placeholder-brand">Vaidora</span>
+                            <div style="font-size: 0.65rem; color:var(--text-muted); margin-top:10px;">[Product Image Area]</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="font-size: 0.7rem; color: var(--gold); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;">Men • Fresh & Aquatic</span>
+                            <span style="font-size: 0.7rem; background:rgba(255,255,255,0.05); padding: 2px 8px; color: var(--text-secondary);">Lasts 8+ Hrs</span>
+                        </div>
+                        
+                        <h3 style="font-size: 1.6rem; color: var(--text-primary); margin-bottom: 5px;">Vaidora Ocean Breeze</h3>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 15px; line-height: 1.5;">Refreshing ocean spray, rich marine salt, earthy sage, and wet cedarwood.</p>
+                        
+                        <div style="font-size:0.75rem; color:var(--gold-light); margin-bottom:15px;">
+                            <b>Notes:</b> Sea Salt • Sage • Cedarwood
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid var(--border-dark);">
+                            <div>
+                                <span style="font-size: 0.7rem; color: var(--text-muted); display: block;">Starting from</span>
+                                <span style="font-size: 1.25rem; color: var(--gold); font-weight: 600;">₹199 <span style="font-size:0.75rem; color:var(--text-muted); font-weight:400;">(3ml)</span></span>
+                            </div>
+                            <a href="shop.html" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.7rem;">Select Size</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="shop.html" class="btn btn-primary">View All 100+ Fragrances</a>
+            </div>
+        </section>
+
+        <!-- 4. Dynamic Promo Offer Banner (2 Perfumes for ₹999) -->
+        <section class="section section-alt" style="position: relative; overflow: hidden; padding: 100px 5%;">
+            <!-- Visual ambient decoration -->
+            <div style="position: absolute; right: -50px; bottom: -50px; width: 350px; height: 350px; border: 1px solid var(--border-gold); border-radius: 50%; opacity: 0.1; pointer-events: none;"></div>
+            <div style="position: absolute; left: -50px; top: -50px; width: 200px; height: 200px; border: 1px solid var(--border-gold); border-radius: 50%; opacity: 0.05; pointer-events: none;"></div>
+
+            <div style="max-width: 900px; margin: 0 auto; text-align: center; position: z-index: 2;">
+                <span style="font-size: 0.9rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.4em; font-weight: 600; display: block; margin-bottom: 20px;">Exclusive Signature Deal</span>
+                
+                <h2 style="font-size: clamp(2.2rem, 4vw, 3.8rem); line-height: 1.2; margin-bottom: 20px; font-family: var(--font-heading); color: var(--text-primary);">
+                    The Ultimate Luxury Combo<br>
+                    <span style="color: var(--gold); font-weight:700;">Any 2 Perfumes for ₹999</span>
+                </h2>
+                
+                <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 40px; font-weight: 300; line-height: 1.8;">
+                    Mix and match your favorite elite fragrances. Indulge in premium concentration, custom sizes, and exceptional projection for one unparalleled value price. Discount automatically applied at checkout!
+                </p>
+
+                <button onclick="triggerComboPromo()" class="btn btn-primary" style="padding: 15px 40px; font-size: 0.85rem; box-shadow: 0 10px 35px var(--gold-glow);">Claim Combo Offer Now</button>
+            </div>
+        </section>
+
+        <!-- JavaScript helper to auto apply the combo deal and redirect -->
+        <script>
+            function triggerComboPromo() {
+                // Set the active coupon in local storage
+                localStorage.setItem("vaidora_active_coupon", "VAIDORA2");
+                // Redirect user to the shop page
+                window.location.href = "shop.html?promoApplied=VAIDORA2";
+            }
+        </script>
+
+        <!-- 5. Brand Ethos Section -->
+        <section class="section section-dark">
+            <div class="section-header">
+                <span class="section-subtitle">Why Choose Vaidora</span>
+                <h2 class="section-title">The Pillars of Luxury</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center;">
+                <!-- Pillar 1 -->
+                <div style="padding: 20px;">
+                    <div style="font-size: 3rem; color: var(--gold); margin-bottom: 20px; text-shadow: 0 0 10px var(--gold-glow);">⚜️</div>
+                    <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 12px; font-weight: 500;">French Legacy Craft</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.7;">Our oils are imported directly from legendary Grasse distilleries in France, ensuring elite scent profiles.</p>
+                </div>
+                <!-- Pillar 2 -->
+                <div style="padding: 20px;">
+                    <div style="font-size: 3rem; color: var(--gold); margin-bottom: 20px; text-shadow: 0 0 10px var(--gold-glow);">⏳</div>
+                    <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 12px; font-weight: 500;">12+ Hour Longevity</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.7;">Compounded with extra-high perfume oil concentrations (Extrait de Parfum), promising phenomenal staying power.</p>
+                </div>
+                <!-- Pillar 3 -->
+                <div style="padding: 20px;">
+                    <div style="font-size: 3rem; color: var(--gold); margin-bottom: 20px; text-shadow: 0 0 10px var(--gold-glow);">🌱</div>
+                    <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 12px; font-weight: 500;">Ethically Formulated</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.7;">100% vegan, cruelty-free, skin-friendly ingredients. Free from harmful phthalates and paraben compounds.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer>
+        <div class="footer-grid">
+            <!-- Col 1: Brand Info -->
+            <div class="footer-about">
+                <div class="footer-logo">Vaidora<span>.</span></div>
+                <p>An exquisite boutique perfume laboratory creating long-lasting inspired luxury scents. Crafted using finest oil infusions to accompany every mood and milestone.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/vaidora.perfume" target="_blank" class="social-btn" aria-label="Follow us on Instagram">📸</a>
+                </div>
+            </div>
+            
+            <!-- Col 2: Navigation Links -->
+            <div>
+                <h4 class="footer-title">Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="shop.html">Shop All Fragrances</a></li>
+                    <li><a href="categories.html">Explore Categories</a></li>
+                    <li><a href="offers.html">Exclusive Combo Offers</a></li>
+                    <li><a href="tracking.html">Track Your Order</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Customer Care -->
+            <div>
+                <h4 class="footer-title">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">Our Brand Story</a></li>
+                    <li><a href="reviews.html">Customer Reviews</a></li>
+                    <li><a href="contact.html">Contact Customer Care</a></li>
+                    <li><a href="contact.html">Wholesale Inquiries</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Contacts & Address -->
+            <div>
+                <h4 class="footer-title">Direct Contacts</h4>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📱</span>
+                    <div>
+                        <strong style="display:block; color:var(--text-primary); font-size:0.8rem;">Vaidik Patel</strong>
+                        <a href="https://wa.me/917863065807" target="_blank" style="font-size:0.8rem;">+91 78630 65807</a>
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📱</span>
+                    <div>
+                        <strong style="display:block; color:var(--text-primary); font-size:0.8rem;">Shruti Vekariya</strong>
+                        <a href="https://wa.me/919875148610" target="_blank" style="font-size:0.8rem;">+91 98751 48610</a>
+                    </div>
+                </div>
+                <div class="footer-contact-item" style="margin-top:15px;">
+                    <span class="footer-contact-icon">📧</span>
+                    <a href="mailto:support@vaidora.com" style="font-size:0.8rem;">support@vaidora.com</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vaidora Perfumes. All Rights Reserved. Designed with Luxury.</p>
+            <p>
+                <a href="#" style="margin-right:15px;">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Shared Scripts -->
+    <script src="shared.js"></script>
+</body>
+</html>
